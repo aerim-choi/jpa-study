@@ -20,7 +20,9 @@ public class JpaMain {
 
             Member member = new Member();
             member.setUsername("member1");
-            member.setTeam(team);
+            member.changeTeam(team);
+            //연관관계 메소드는 한쪽에만 두는게 좋다 1에다 둬도 되고 다에다가 둬도된다.
+            //실무팁: 컨트롤러에서 절대로 엔티티를 반환하지 말자!! 엔티티는 DTO로 변환해서 반환하도록 한다.
             em.persist(member);
 
             em.flush();
